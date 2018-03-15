@@ -16,6 +16,16 @@ Route::get('/danh-muc/may-phun-suong/may-phun-suong-1', function () {
 Route::get('/dich-vu/lap-dat-may-phun-suong', function () {
     return view('frontend.service.index');
 });
+Route::get('/dich-vu/lap-dat-may-phun-suong/lap-dat-phun-suong-quan-4', function () {
+    return view('frontend.serviceinfo.index');
+});
+
+Route::get('/lien-he', function () {
+    return view('frontend.contact.index');
+});
+Route::get('/tim-kiem/keyword', function () {
+    return view('frontend.search.index');
+});
 
 
 
