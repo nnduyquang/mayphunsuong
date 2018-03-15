@@ -1,0 +1,18 @@
+#sev_info {
+  .one-sev {
+    margin-bottom: 20px;
+    img.one-service-img {
+      height: 155px;
+      border: 1px solid $main-color;
+    }
+    h3.title {
+      a {
+        transition: all 0.2s;
+        color: $main-color;
+      }
+      a:hover {
+        color: $main-color-title;
+      }
+    }
+  }
+}

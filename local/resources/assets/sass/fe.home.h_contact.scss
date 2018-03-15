@@ -1,0 +1,26 @@
+#h_contact{
+  margin-top: 20px;
+  .h_contact-left,.h_contact-middle,.h_contact-right{
+    padding: 5px;
+    h3.title{
+      font-size: 17px;
+      font-weight: bold;
+      color: white;
+      line-height: 1.5;
+    }
+    p{
+      font-size: 15px;
+      text-transform: capitalize;
+      color: white;
+    }
+  }
+  .h_contact-left.card{
+    background-color: $main-color;
+  }
+  .h_contact-middle.card{
+    background-color: $main-color-sub;
+  }
+  .h_contact-right.card{
+    background-color: $main-color;
+  }
+}

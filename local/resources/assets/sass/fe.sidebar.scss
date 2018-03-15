@@ -1,0 +1,37 @@
+#sidebar{
+  .one-item{
+    margin-bottom: 10px;
+    h3{
+      background-color: $main-color;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: white;
+      font-weight: bold;
+      display: block;
+      padding: 10px;
+    }
+    ul{
+      display: block;
+      box-shadow: 0px 3px 13px 0px rgba(136, 136, 136, 0.25);
+      list-style: none;
+      li{
+        a{
+          color: $main-color-sub;
+          display: block;
+          padding: 10px;
+          border-bottom: 1px solid #d6d6d6;
+          border-left: 1px solid #d6d6d6;
+          border-right: 1px solid #d6d6d6;
+          transition: all 0.2s;
+          font-size: 14px;
+        }
+        a:hover{
+          padding-left: 20px;
+        }
+      }
+    }
+    img.sidebar-img{
+      border: 1px solid $main-color;
+    }
+  }
+}
