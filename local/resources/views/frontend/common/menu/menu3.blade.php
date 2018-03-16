@@ -28,50 +28,31 @@
         <div class="container">
             <div class="col-md-12 p-0">
                 <ul class="main_menu">
-                    <li class="li-normal"><a href="#">Menu 1</a></li>
-                    <li class="li-normal"><a href="#">Menu 2</a></li>
-                    <li class="has-item-down"><a href="#">Menu 3</a>
-                        <div class="drop-down col-md-12">
-                            <div class="row">
-                                <div class="col-md-3 text-center card p-0">
-                                    <a href="#">
-                                        {{ Html::image('images/temps/menu/menu3/menu3_1.jpg','',array('class'=>''))}}
-                                        <div class="card-body">
-                                            <h4 class="title">ABC</h4>
+                    <li class="li-normal"><a href="{{URL::to('/')}}">Trang Chủ</a></li>
+                    @foreach($listMenu as$key=>$data)
+                        @if(count($data->children)==0)
+                            <li class="li-normal"><a href="{{URL::to($data->url)}}"
+                                                     class="">{{$data->text}}</a>
+                        @else
+                            <li class="has-item-down"><a href="{{URL::to($data->url)}}"
+                                                         class="">{{$data->text}}</a>
+                                <div class="drop-down col-md-12">
+                                    <div class="row">
+                                        @foreach($data->children as$key2=>$data2)
+                                        <div class="col-md-3 text-center card p-0">
+                                            <a href="{{URL::to($data2->url)}}">
+                                                {{ Html::image('images/temps/menu/menu3/menu3_1.jpg','',array('class'=>''))}}
+                                                <div class="card-body">
+                                                    <h4 class="title">{{$data2->text}}</h4>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
+                                        @endforeach
+                                    </div>
                                 </div>
-                                <div class="col-md-3 text-center card p-0">
-                                    <a href="#">
-                                        {{ Html::image('images/temps/menu/menu3/menu3_1.jpg','',array('class'=>''))}}
-                                        <div class="card-body">
-                                            <h4 class="title">ABC</h4>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-md-3 text-center card p-0">
-                                    <a href="#">
-                                        {{ Html::image('images/temps/menu/menu3/menu3_1.jpg','',array('class'=>''))}}
-                                        <div class="card-body">
-                                            <h4 class="title">ABC</h4>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-md-3 text-center card p-0">
-                                    <a href="#">
-                                        {{ Html::image('images/temps/menu/menu3/menu3_1.jpg','',array('class'=>''))}}
-                                        <div class="card-body">
-                                            <h4 class="title">ABC</h4>
-                                        </div>
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
-                    </li>
-                    <li class="li-normal"><a href="#">Menu 4</a></li>
-                    <li class="li-normal"><a href="#">Menu 5</a></li>
-                    <li class="li-normal"><a href="#">Menu 6</a></li>
+                            </li>
+                        @endif
+                    @endforeach
                 </ul>
             </div>
         </div>

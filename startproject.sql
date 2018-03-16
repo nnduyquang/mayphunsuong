@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2018 at 08:59 AM
+-- Generation Time: Mar 16, 2018 at 10:45 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.27
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `startproject`
+-- Database: `mayphunsuong`
 --
 
 -- --------------------------------------------------------
@@ -42,7 +42,8 @@ INSERT INTO `category_permissions` (`id`, `name`, `created_at`, `updated_at`) VA
 (2, 'User', '2018-03-14 07:31:28', '2018-03-14 07:31:28'),
 (3, 'Menu', '2018-03-14 07:31:28', '2018-03-14 07:31:28'),
 (4, 'Page', '2018-03-14 07:31:29', '2018-03-14 07:31:29'),
-(5, 'Post', '2018-03-14 07:31:29', '2018-03-14 07:31:29');
+(5, 'Post', '2018-03-14 07:31:29', '2018-03-14 07:31:29'),
+(7, 'Product', '2018-03-16 02:53:37', '2018-03-16 02:53:37');
 
 -- --------------------------------------------------------
 
@@ -56,12 +57,24 @@ CREATE TABLE `category_posts` (
   `path` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `level` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
   `template` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type` tinyint(1) NOT NULL DEFAULT '0',
   `parent_id` int(10) UNSIGNED DEFAULT NULL,
   `page_id` int(11) NOT NULL DEFAULT '0',
   `order` int(11) NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `category_posts`
+--
+
+INSERT INTO `category_posts` (`id`, `name`, `path`, `level`, `template`, `type`, `parent_id`, `page_id`, `order`, `created_at`, `updated_at`) VALUES
+(1, 'Máy Phun Sương', 'may-phun-suong', 0, NULL, 1, NULL, 1, 1, '2018-03-16 01:41:57', '2018-03-16 01:41:57'),
+(2, 'Linh Kiện Phun Sương', 'linh-kien-phun-suong', 0, NULL, 1, NULL, 2, 2, '2018-03-16 01:42:53', '2018-03-16 01:42:53'),
+(3, 'Lắp Đặt Phun Sương', 'lap-dat-phun-suong', 0, NULL, 0, NULL, 4, 1, '2018-03-16 09:02:35', '2018-03-16 09:02:35'),
+(4, 'Sửa Chữa Phun Sương', 'sua-chua-phun-suong', 0, NULL, 0, NULL, 5, 2, '2018-03-16 09:02:59', '2018-03-16 09:02:59'),
+(5, 'Lắp Đặt Phun Sương Tỉnh', 'lap-dat-phun-suong-tinh', 0, NULL, 0, NULL, 6, 3, '2018-03-16 09:03:19', '2018-03-16 09:03:19');
 
 -- --------------------------------------------------------
 
@@ -83,6 +96,20 @@ CREATE TABLE `menus` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `menus`
+--
+
+INSERT INTO `menus` (`id`, `name`, `path`, `level`, `order`, `parent_id`, `content_id`, `type`, `isActive`, `created_at`, `updated_at`) VALUES
+(1, 'Giới Thiệu', 'gioi-thieu', 0, 1, NULL, 3, 1, 1, '2018-03-16 08:42:14', '2018-03-16 08:42:14'),
+(2, 'Máy Phun Sương', 'may-phun-suong', 0, 2, NULL, 1, 2, 1, '2018-03-16 08:42:43', '2018-03-16 08:42:43'),
+(3, 'Linh Kiện Phun Sương', 'linh-kien-phun-suong', 0, 3, NULL, 2, 2, 1, '2018-03-16 08:43:08', '2018-03-16 08:43:08'),
+(4, 'Dịch Vụ', 'dich-vu', 0, 4, NULL, 0, 1, 1, '2018-03-16 09:03:34', '2018-03-16 09:03:34'),
+(5, 'Lắp Đặt Phun Sương', 'lap-dat-phun-suong', 1, 1, 4, 3, 2, 1, '2018-03-16 09:04:06', '2018-03-16 09:04:06'),
+(6, 'Sửa Chữa Phun Sương', 'sua-chua-phun-suong', 1, 2, 4, 4, 2, 1, '2018-03-16 09:04:40', '2018-03-16 09:04:40'),
+(7, 'Lắp Đặt Phun Sương Tỉnh', 'lap-dat-phun-suong-tinh', 1, 3, 4, 5, 2, 1, '2018-03-16 09:05:18', '2018-03-16 09:05:18'),
+(8, 'Liên Hệ', 'lien-he', 0, 5, NULL, 7, 1, 1, '2018-03-16 09:16:47', '2018-03-16 09:16:47');
+
 -- --------------------------------------------------------
 
 --
@@ -102,7 +129,8 @@ CREATE TABLE `migrations` (
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2014_10_12_000000_create_users_table', 1),
 (2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2018_03_14_140923_create_entrust_setup_tables', 2);
+(3, '2018_03_14_140923_create_entrust_setup_tables', 2),
+(4, '2018_03_16_084857_create_products_table', 3);
 
 -- --------------------------------------------------------
 
@@ -156,7 +184,11 @@ INSERT INTO `permissions` (`id`, `name`, `display_name`, `description`, `categor
 (17, 'post-list', 'Toàn Quyền Bài Viết', 'Được Toàn Quyền Bài Viết', 5, '2018-03-14 07:54:54', '2018-03-14 07:54:54'),
 (18, 'post-create', 'Thêm Mới Bài Viết', 'Được Thêm Mới Bài Viết', 5, '2018-03-14 07:54:54', '2018-03-14 07:54:54'),
 (19, 'post-edit', 'Cập Nhật Bài Viết', 'Được Cập Nhật Bài Viết', 5, '2018-03-14 07:54:54', '2018-03-14 07:54:54'),
-(20, 'post-delete', 'Xóa Bài Viết', 'Được Xóa Bài Viết', 5, '2018-03-14 07:54:54', '2018-03-14 07:54:54');
+(20, 'post-delete', 'Xóa Bài Viết', 'Được Xóa Bài Viết', 5, '2018-03-14 07:54:54', '2018-03-14 07:54:54'),
+(21, 'product-list', 'Toàn Quyền Sản Phẩm', 'Được Toàn Quyền Sản Phẩm', 7, '2018-03-16 02:55:06', '2018-03-16 02:55:06'),
+(22, 'product-create', 'Thêm Mới Sản Phẩm', 'Được Thêm Mới Sản Phẩm', 7, '2018-03-16 02:55:06', '2018-03-16 02:55:06'),
+(23, 'product-edit', 'Cập Nhật Sản Phẩm', 'Được Cập Nhật Sản Phẩm', 7, '2018-03-16 02:55:06', '2018-03-16 02:55:06'),
+(24, 'product-delete', 'Xóa Sản Phẩm', 'Được Xóa Sản Phẩm', 7, '2018-03-16 02:55:06', '2018-03-16 02:55:06');
 
 -- --------------------------------------------------------
 
@@ -193,7 +225,11 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (17, 1),
 (18, 1),
 (19, 1),
-(20, 1);
+(20, 1),
+(21, 1),
+(22, 1),
+(23, 1),
+(24, 1);
 
 -- --------------------------------------------------------
 
@@ -218,6 +254,58 @@ CREATE TABLE `posts` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`id`, `title`, `path`, `description`, `content`, `template`, `image`, `seo_title`, `seo_description`, `seo_keywords`, `post_type`, `isActive`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 'Máy Phun Sương', 'may-phun-suong', '<p>\r\n	Máy Phun Sương\r\n</p>', '<p>\r\n	Máy Phun Sương\r\n</p>', 'category.index', 'images/uploads/images/gt_1.jpg', 'Máy Phun Sương', '<p>\r\n	Máy Phun Sương\r\n</p>', 'Máy Phun Sương', 1, 1, 1, '2018-03-16 01:41:40', '2018-03-16 01:41:40'),
+(2, 'Linh Kiện Phun Sương', 'linh-kien-phun-suong', '<p>\r\n	Linh Kiện Phun Sương\r\n</p>', '<p>\r\n	Linh Kiện Phun Sương\r\n</p>', 'category.index', 'images/uploads/images/gt_1.jpg', 'Linh Kiện Phun Sương', '<p>\r\n	Linh Kiện Phun Sương\r\n</p>', 'Linh Kiện Phun Sương', 1, 1, 1, '2018-03-16 01:42:27', '2018-03-16 01:44:12'),
+(3, 'Giới Thiệu', 'gioi-thieu', '<p>\r\n	Giới Thiệu\r\n</p>', '<p>\r\n	Giới Thiệu\r\n</p>', 'portfolio.index', 'images/uploads/images/gt_1.jpg', 'Giới Thiệu', '<p>\r\n	Giới Thiệu\r\n</p>', 'Giới Thiệu', 1, 1, 1, '2018-03-16 08:41:50', '2018-03-16 08:45:42'),
+(4, 'Lắp Đặt Phun Sương', 'lap-dat-phun-suong', '<p>\r\n	Lắp Đặt Phun Sương\r\n</p>', '<p>\r\n	Lắp Đặt Phun Sương\r\n</p>', 'service.index', 'images/uploads/images/gt_1.jpg', 'Lắp Đặt Phun Sương', '<p>\r\n	Lắp Đặt Phun Sương\r\n</p>', 'Lắp Đặt Phun Sương', 1, 1, 1, '2018-03-16 08:58:45', '2018-03-16 08:58:45'),
+(5, 'Sửa Chữa Phun Sương', 'sua-chua-phun-suong', '<p>\r\n	Sửa Chữa Phun Sương\r\n</p>', '<p>\r\n	Sửa Chữa Phun Sương\r\n</p>', 'service.index', 'images/uploads/images/gt_1.jpg', 'Sửa Chữa Phun Sương', '<p>\r\n	Sửa Chữa Phun Sương\r\n</p>', 'Sửa Chữa Phun Sương', 1, 1, 1, '2018-03-16 08:59:45', '2018-03-16 08:59:45'),
+(6, 'Lắp Đặt Phun Sương Tỉnh', 'lap-dat-phun-suong-tinh', '<p>\r\n	Lắp Đặt Phun Sương Tỉnh\r\n</p>', '<p>\r\n	Lắp Đặt Phun Sương Tỉnh\r\n</p>', 'service.info', 'images/uploads/images/gt_1.jpg', 'Lắp Đặt Phun Sương Tỉnh', '<p>\r\n	Lắp Đặt Phun Sương Tỉnh\r\n</p>', 'Lắp Đặt Phun Sương Tỉnh', 1, 1, 1, '2018-03-16 09:00:32', '2018-03-16 09:00:32'),
+(7, 'Liên Hệ', 'lien-he', '<p>\r\n	Liên Hệ\r\n</p>', '<p>\r\n	Liên Hệ\r\n</p>', 'contact.index', 'images/uploads/images/gt_1.jpg', 'Liên Hệ', '<p>\r\n	Liên Hệ\r\n</p>', 'Liên Hệ', 1, 1, 1, '2018-03-16 09:16:24', '2018-03-16 09:16:24');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
+--
+
+CREATE TABLE `products` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `path` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `isActive` tinyint(1) NOT NULL DEFAULT '0',
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `seo_title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_description` text COLLATE utf8mb4_unicode_ci,
+  `seo_keywords` text COLLATE utf8mb4_unicode_ci,
+  `template` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `price` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT '0',
+  `sale` int(11) NOT NULL DEFAULT '0',
+  `final_price` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT '0',
+  `order` int(11) NOT NULL DEFAULT '1',
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `category_product_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `path`, `isActive`, `image`, `description`, `content`, `seo_title`, `seo_description`, `seo_keywords`, `template`, `price`, `sale`, `final_price`, `order`, `user_id`, `category_product_id`, `created_at`, `updated_at`) VALUES
+(1, 'aa', 'aa', 1, 'images/uploads/images/gt_1.jpg', '<p>\r\n	aa\r\n</p>', '<p>\r\n	aa\r\n</p>', 'aa', '<p>\r\n	aa\r\n</p>', 'aa', 'aabb', '10000', 30, '7000', 1, 1, 1, '2018-03-16 03:24:27', '2018-03-16 06:28:08'),
+(2, 'aa 353', 'aa-353', 1, 'images/uploads/images/gt_1.jpg', '<p>\r\n	aa\r\n</p>', '<p>\r\n	aa\r\n</p>', 'aa', '<p>\r\n	aa\r\n</p>', 'aa', 'aabb', '10000', 30, '7000', 1, 1, 1, '2018-03-16 03:24:27', '2018-03-16 06:28:08'),
+(4, 'aa 928', 'aa-928', 1, 'images/uploads/images/gt_1.jpg', '<p>\r\n	aa\r\n</p>', '<p>\r\n	aa\r\n</p>', 'aa', '<p>\r\n	aa\r\n</p>', 'aa', 'aabb', '10000', 30, '7000', 1, 1, 1, '2018-03-16 03:24:27', '2018-03-16 06:28:08'),
+(5, 'aa 353 823', 'aa-353-823', 1, 'images/uploads/images/gt_1.jpg', '<p>\r\n	aa\r\n</p>', '<p>\r\n	aa\r\n</p>', 'aa', '<p>\r\n	aa\r\n</p>', 'aa', 'aabb', '10000', 30, '7000', 1, 1, 1, '2018-03-16 03:24:27', '2018-03-16 06:28:08'),
+(6, 'aa 353 823 236', 'aa-353-823-236', 1, 'images/uploads/images/gt_1.jpg', '<p>\r\n	aa\r\n</p>', '<p>\r\n	aa\r\n</p>', 'aa', '<p>\r\n	aa\r\n</p>', 'aa', 'aabb', '10000', 30, '7000', 1, 1, 1, '2018-03-16 03:24:27', '2018-03-16 06:28:08');
 
 -- --------------------------------------------------------
 
@@ -340,6 +428,14 @@ ALTER TABLE `posts`
   ADD KEY `posts_user_id_foreign` (`user_id`);
 
 --
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `products_user_id_foreign` (`user_id`),
+  ADD KEY `products_category_product_id_foreign` (`category_product_id`);
+
+--
 -- Indexes for table `roles`
 --
 ALTER TABLE `roles`
@@ -368,32 +464,37 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `category_permissions`
 --
 ALTER TABLE `category_permissions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `category_posts`
 --
 ALTER TABLE `category_posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `roles`
 --
@@ -426,6 +527,13 @@ ALTER TABLE `permission_role`
 --
 ALTER TABLE `posts`
   ADD CONSTRAINT `posts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `products`
+--
+ALTER TABLE `products`
+  ADD CONSTRAINT `products_category_product_id_foreign` FOREIGN KEY (`category_product_id`) REFERENCES `category_posts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `products_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `role_user`

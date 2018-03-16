@@ -61,7 +61,7 @@ mix
         'resources/assets/js/be.page.js',
         // 'resources/assets/js/be.config.email.js',
         'resources/assets/js/be.post.js',
-        // 'resources/assets/js/be.tuyendung.js',
+        'resources/assets/js/be.product.js',
         'resources/assets/js/be.menu.js',
         // 'resources/assets/js/be.location.js',
     ], '../js/backend.js')

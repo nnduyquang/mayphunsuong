@@ -7,11 +7,11 @@
     <div class="col-lg-12 margin-tb">
         <div class="row">
             <div class="col-md-8">
-                <h2>Quản Lý Chuyên Mục Bài Viết</h2>
+                <h2>Quản Lý Chuyên Mục Sản Phẩm</h2>
             </div>
             <div class="col-md-4 text-right">
                 @permission(('page-create'))
-                <a class="btn btn-success" href="{{ route('categorypost.create') }}"> Tạo Mới Chuyên Mục</a>
+                <a class="btn btn-success" href="{{ route('categoryproduct.create') }}"> Tạo Mới Chuyên Mục</a>
                 @endpermission
             </div>
         </div>
@@ -38,10 +38,10 @@
             <td>{{ $data->updated_at }}</td>
             <td>
                 @permission(('page-edit'))
-                <a class="btn btn-primary" href="{{ route('categorypost.edit',$data->id) }}">Cập Nhật</a>
+                <a class="btn btn-primary" href="{{ route('categoryproduct.edit',$data->id) }}">Cập Nhật</a>
                 @endpermission
                 @permission(('page-delete'))
-                {!! Form::open(['method' => 'DELETE','route' => ['categorypost.destroy', $data->id],'style'=>'display:inline']) !!}
+                {!! Form::open(['method' => 'DELETE','route' => ['categoryproduct.destroy', $data->id],'style'=>'display:inline']) !!}
                 {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                 {!! Form::close() !!}
                 @endpermission

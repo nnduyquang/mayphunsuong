@@ -21,7 +21,7 @@
                 @include('frontend.common.sidebar.index')
             </div>
             <div class="col-md-9">
-                @include('frontend.product.p_info')
+                @include('frontend.portfolio.po_info')
             </div>
             <hr>
             @include('frontend.home.h_contact')
