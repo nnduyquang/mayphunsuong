@@ -38,7 +38,8 @@ class CategoryPostController extends Controller
     public function create()
     {
         $pages = Post::where('post_type', 1)->get();
-        $dd_categorie_posts = CategoryPost::orderBy('order')->get();
+        $dd_categorie_posts = CategoryPost::where('type', CATEGORY_POST)->orderBy('order')->get();
+
         foreach ($dd_categorie_posts as $key => $data) {
             if ($data->level == CATEGORY_POST_CAP_1) {
                 $data->name = ' ---- ' . $data->name;

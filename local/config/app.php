@@ -179,7 +179,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         App\Providers\MenuServiceProvider::class,
-        App\Providers\HomepageServiceProvider::class,
+        App\Providers\FrontendServiceProvider::class,
 
     ],
 

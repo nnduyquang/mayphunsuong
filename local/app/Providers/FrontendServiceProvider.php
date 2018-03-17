@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class HomepageServiceProvider extends ServiceProvider
+class FrontendServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -26,6 +26,9 @@ class HomepageServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(
+            \App\Repositories\Frontend\FrontendRepositoryInterface::class,
+            \App\Repositories\Frontend\FrontendRepository::class
+        );
     }
 }

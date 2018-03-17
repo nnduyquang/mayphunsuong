@@ -79,7 +79,7 @@
 
         </div>
         <div class="col-md-6 p-0">
-            <strong>Chọn Giao Diện:</strong>
+            <strong>Chọn Giao Diện Sản Phẩm:</strong>
             {{Form::text('template',null,array('class'=>'form-control'))}}
 
         </div>

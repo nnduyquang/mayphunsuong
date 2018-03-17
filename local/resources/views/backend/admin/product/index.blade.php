@@ -108,6 +108,6 @@
                 @endforeach
             </table>
         </div>
-        {{--{!! $pages->links() !!}--}}
+        {!! $products->links() !!}
     </div>
 @stop

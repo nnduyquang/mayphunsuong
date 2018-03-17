@@ -2,21 +2,21 @@
 
 namespace App\Http\ViewComposers;
 
-use App\Repositories\Homepage\HomepageRepository;
+use App\Repositories\Frontend\FrontendRepository;
 use Illuminate\View\View;
 
-class HomepageComposer
+class SidebarComposer
 {
-    public $emps=[];
+    public $sidebar=[];
 
     /**
      * Create a movie composer.
      *
      * @return void
      */
-    public function __construct(HomepageRepository $home)
+    public function __construct(FrontendRepository $home)
     {
-        $this->emps = $home->getAllSidebar();
+        $this->sidebar = $home->getAllSidebar();
     }
 
     /**
@@ -27,6 +27,6 @@ class HomepageComposer
      */
     public function compose(View $view)
     {
-        $view->with('emps', $this->emps);
+        $view->with('sidebar', $this->sidebar);
     }
 }

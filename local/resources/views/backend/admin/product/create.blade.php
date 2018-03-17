@@ -70,7 +70,7 @@
             {!! Form::textarea('content',null,array('placeholder' => '','id'=>'content-page','class' => 'form-control','rows'=>'10','style'=>'resize:none')) !!}
         </div>
         <div class="col-md-6 p-0">
-            <strong>Chọn Giao Diện:</strong>
+            <strong>Chọn Giao Diện Sản Phẩm:</strong>
             {{Form::text('template','',array('class'=>'form-control'))}}
 
         </div>

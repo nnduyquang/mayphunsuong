@@ -2,16 +2,17 @@
     <div class="one-item">
         <h3>DANH MỤC SẢN PHẨM</h3>
         <ul>
-            <li><a href="#">Máy Phun Sương</a></li>
-            <li><a href="#">Linh Kiện Phun Sương</a></li>
+            @foreach($sidebar['categoryProducts'] as $key=>$data)
+            <li><a href="{{URL::to('danh-muc/'.$data->path)}}">{{$data->name}}</a></li>
+            @endforeach
         </ul>
     </div>
     <div class="one-item">
         <h3>DỊCH VỤ</h3>
         <ul>
-            <li><a href="#">Lắp Đặt Phun Sương</a></li>
-            <li><a href="#">Sửa Chữa Phun Sương</a></li>
-            <li><a href="#">Lắp Đặt Phun Sương Tỉnh</a></li>
+            @foreach($sidebar['categoryPosts'] as $key=>$data)
+                <li><a href="{{URL::to('dich-vu/'.$data->path)}}">{{$data->name}}</a></li>
+            @endforeach
         </ul>
     </div>
     <div class="one-item">

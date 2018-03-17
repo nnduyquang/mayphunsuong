@@ -1,24 +1,22 @@
 <?php
 
 
-Route::get('/', function () {
-    return view('frontend.home.index');
-});
+//Route::get('/', function () {
+//    return view('frontend.home.index');
+//});
+Route::get('/','FrontendController@getAllListCategoryAndProduct');
 
-Route::get('/danh-muc/may-phun-suong', function () {
-    return view('frontend.category.index');
-});
 
-Route::get('/danh-muc/may-phun-suong/may-phun-suong-1', function () {
-    return view('frontend.product.index');
-});
+Route::get('/danh-muc/{path}', 'FrontendController@getProductByCategory');
 
-Route::get('/dich-vu/lap-dat-may-phun-suong', function () {
-    return view('frontend.service.index');
-});
+
+Route::get('/danh-muc/{categoryPath}/{productPath}','FrontendController@getProductInfo');
+
+Route::get('/dich-vu/{path}','FrontendController@getServiceByCategory');
 Route::get('/dich-vu/lap-dat-may-phun-suong/lap-dat-phun-suong-quan-4', function () {
     return view('frontend.serviceinfo.index');
 });
+Route::get('/dich-vu/{categoryPath}/{servicePath}','FrontendController@getServiceInfo');
 
 Route::get('/lien-he', function () {
     return view('frontend.contact.index');

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2018 at 10:45 AM
+-- Generation Time: Mar 17, 2018 at 02:07 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.27
 
@@ -70,11 +70,11 @@ CREATE TABLE `category_posts` (
 --
 
 INSERT INTO `category_posts` (`id`, `name`, `path`, `level`, `template`, `type`, `parent_id`, `page_id`, `order`, `created_at`, `updated_at`) VALUES
-(1, 'Máy Phun Sương', 'may-phun-suong', 0, NULL, 1, NULL, 1, 1, '2018-03-16 01:41:57', '2018-03-16 01:41:57'),
-(2, 'Linh Kiện Phun Sương', 'linh-kien-phun-suong', 0, NULL, 1, NULL, 2, 2, '2018-03-16 01:42:53', '2018-03-16 01:42:53'),
-(3, 'Lắp Đặt Phun Sương', 'lap-dat-phun-suong', 0, NULL, 0, NULL, 4, 1, '2018-03-16 09:02:35', '2018-03-16 09:02:35'),
-(4, 'Sửa Chữa Phun Sương', 'sua-chua-phun-suong', 0, NULL, 0, NULL, 5, 2, '2018-03-16 09:02:59', '2018-03-16 09:02:59'),
-(5, 'Lắp Đặt Phun Sương Tỉnh', 'lap-dat-phun-suong-tinh', 0, NULL, 0, NULL, 6, 3, '2018-03-16 09:03:19', '2018-03-16 09:03:19');
+(1, 'Máy Phun Sương', 'may-phun-suong', 0, 'category.index', 1, NULL, 1, 1, '2018-03-16 01:41:57', '2018-03-16 01:41:57'),
+(2, 'Linh Kiện Phun Sương', 'linh-kien-phun-suong', 0, 'category.index', 1, NULL, 2, 2, '2018-03-16 01:42:53', '2018-03-16 01:42:53'),
+(3, 'Lắp Đặt Phun Sương', 'lap-dat-phun-suong', 0, 'service.index', 0, NULL, 4, 1, '2018-03-16 09:02:35', '2018-03-16 09:02:35'),
+(4, 'Sửa Chữa Phun Sương', 'sua-chua-phun-suong', 0, 'service.index', 0, NULL, 5, 2, '2018-03-16 09:02:59', '2018-03-16 09:02:59'),
+(5, 'Lắp Đặt Phun Sương Tỉnh', 'lap-dat-phun-suong-tinh', 0, 'service.index', 0, NULL, 6, 3, '2018-03-16 09:03:19', '2018-03-16 09:03:19');
 
 -- --------------------------------------------------------
 
@@ -249,6 +249,7 @@ CREATE TABLE `posts` (
   `seo_description` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `seo_keywords` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `post_type` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
+  `category_post_id` int(11) DEFAULT NULL,
   `isActive` tinyint(1) NOT NULL DEFAULT '1',
   `user_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -259,14 +260,18 @@ CREATE TABLE `posts` (
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`id`, `title`, `path`, `description`, `content`, `template`, `image`, `seo_title`, `seo_description`, `seo_keywords`, `post_type`, `isActive`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 'Máy Phun Sương', 'may-phun-suong', '<p>\r\n	Máy Phun Sương\r\n</p>', '<p>\r\n	Máy Phun Sương\r\n</p>', 'category.index', 'images/uploads/images/gt_1.jpg', 'Máy Phun Sương', '<p>\r\n	Máy Phun Sương\r\n</p>', 'Máy Phun Sương', 1, 1, 1, '2018-03-16 01:41:40', '2018-03-16 01:41:40'),
-(2, 'Linh Kiện Phun Sương', 'linh-kien-phun-suong', '<p>\r\n	Linh Kiện Phun Sương\r\n</p>', '<p>\r\n	Linh Kiện Phun Sương\r\n</p>', 'category.index', 'images/uploads/images/gt_1.jpg', 'Linh Kiện Phun Sương', '<p>\r\n	Linh Kiện Phun Sương\r\n</p>', 'Linh Kiện Phun Sương', 1, 1, 1, '2018-03-16 01:42:27', '2018-03-16 01:44:12'),
-(3, 'Giới Thiệu', 'gioi-thieu', '<p>\r\n	Giới Thiệu\r\n</p>', '<p>\r\n	Giới Thiệu\r\n</p>', 'portfolio.index', 'images/uploads/images/gt_1.jpg', 'Giới Thiệu', '<p>\r\n	Giới Thiệu\r\n</p>', 'Giới Thiệu', 1, 1, 1, '2018-03-16 08:41:50', '2018-03-16 08:45:42'),
-(4, 'Lắp Đặt Phun Sương', 'lap-dat-phun-suong', '<p>\r\n	Lắp Đặt Phun Sương\r\n</p>', '<p>\r\n	Lắp Đặt Phun Sương\r\n</p>', 'service.index', 'images/uploads/images/gt_1.jpg', 'Lắp Đặt Phun Sương', '<p>\r\n	Lắp Đặt Phun Sương\r\n</p>', 'Lắp Đặt Phun Sương', 1, 1, 1, '2018-03-16 08:58:45', '2018-03-16 08:58:45'),
-(5, 'Sửa Chữa Phun Sương', 'sua-chua-phun-suong', '<p>\r\n	Sửa Chữa Phun Sương\r\n</p>', '<p>\r\n	Sửa Chữa Phun Sương\r\n</p>', 'service.index', 'images/uploads/images/gt_1.jpg', 'Sửa Chữa Phun Sương', '<p>\r\n	Sửa Chữa Phun Sương\r\n</p>', 'Sửa Chữa Phun Sương', 1, 1, 1, '2018-03-16 08:59:45', '2018-03-16 08:59:45'),
-(6, 'Lắp Đặt Phun Sương Tỉnh', 'lap-dat-phun-suong-tinh', '<p>\r\n	Lắp Đặt Phun Sương Tỉnh\r\n</p>', '<p>\r\n	Lắp Đặt Phun Sương Tỉnh\r\n</p>', 'service.info', 'images/uploads/images/gt_1.jpg', 'Lắp Đặt Phun Sương Tỉnh', '<p>\r\n	Lắp Đặt Phun Sương Tỉnh\r\n</p>', 'Lắp Đặt Phun Sương Tỉnh', 1, 1, 1, '2018-03-16 09:00:32', '2018-03-16 09:00:32'),
-(7, 'Liên Hệ', 'lien-he', '<p>\r\n	Liên Hệ\r\n</p>', '<p>\r\n	Liên Hệ\r\n</p>', 'contact.index', 'images/uploads/images/gt_1.jpg', 'Liên Hệ', '<p>\r\n	Liên Hệ\r\n</p>', 'Liên Hệ', 1, 1, 1, '2018-03-16 09:16:24', '2018-03-16 09:16:24');
+INSERT INTO `posts` (`id`, `title`, `path`, `description`, `content`, `template`, `image`, `seo_title`, `seo_description`, `seo_keywords`, `post_type`, `category_post_id`, `isActive`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 'Máy Phun Sương', 'may-phun-suong', '<p>\r\n	Máy Phun Sương\r\n</p>', '<p>\r\n	Máy Phun Sương\r\n</p>', 'category.index', 'images/uploads/images/gt_1.jpg', 'Máy Phun Sương', '<p>\r\n	Máy Phun Sương\r\n</p>', 'Máy Phun Sương', 1, NULL, 1, 1, '2018-03-16 01:41:40', '2018-03-16 01:41:40'),
+(2, 'Linh Kiện Phun Sương', 'linh-kien-phun-suong', '<p>\r\n	Linh Kiện Phun Sương\r\n</p>', '<p>\r\n	Linh Kiện Phun Sương\r\n</p>', 'category.index', 'images/uploads/images/gt_1.jpg', 'Linh Kiện Phun Sương', '<p>\r\n	Linh Kiện Phun Sương\r\n</p>', 'Linh Kiện Phun Sương', 1, NULL, 1, 1, '2018-03-16 01:42:27', '2018-03-16 01:44:12'),
+(3, 'Giới Thiệu', 'gioi-thieu', '<p>\r\n	Giới Thiệu\r\n</p>', '<p>\r\n	Giới Thiệu\r\n</p>', 'portfolio.index', 'images/uploads/images/gt_1.jpg', 'Giới Thiệu', '<p>\r\n	Giới Thiệu\r\n</p>', 'Giới Thiệu', 1, NULL, 1, 1, '2018-03-16 08:41:50', '2018-03-16 08:45:42'),
+(4, 'Lắp Đặt Phun Sương', 'lap-dat-phun-suong', '<p>\r\n	Lắp Đặt Phun Sương\r\n</p>', '<p>\r\n	Lắp Đặt Phun Sương\r\n</p>', 'service.index', 'images/uploads/images/gt_1.jpg', 'Lắp Đặt Phun Sương', '<p>\r\n	Lắp Đặt Phun Sương\r\n</p>', 'Lắp Đặt Phun Sương', 1, NULL, 1, 1, '2018-03-16 08:58:45', '2018-03-16 08:58:45'),
+(5, 'Sửa Chữa Phun Sương', 'sua-chua-phun-suong', '<p>\r\n	Sửa Chữa Phun Sương\r\n</p>', '<p>\r\n	Sửa Chữa Phun Sương\r\n</p>', 'service.index', 'images/uploads/images/gt_1.jpg', 'Sửa Chữa Phun Sương', '<p>\r\n	Sửa Chữa Phun Sương\r\n</p>', 'Sửa Chữa Phun Sương', 1, NULL, 1, 1, '2018-03-16 08:59:45', '2018-03-16 08:59:45'),
+(6, 'Lắp Đặt Phun Sương Tỉnh', 'lap-dat-phun-suong-tinh', '<p>\r\n	Lắp Đặt Phun Sương Tỉnh\r\n</p>', '<p>\r\n	Lắp Đặt Phun Sương Tỉnh\r\n</p>', 'service.info', 'images/uploads/images/gt_1.jpg', 'Lắp Đặt Phun Sương Tỉnh', '<p>\r\n	Lắp Đặt Phun Sương Tỉnh\r\n</p>', 'Lắp Đặt Phun Sương Tỉnh', 1, NULL, 1, 1, '2018-03-16 09:00:32', '2018-03-16 09:00:32'),
+(7, 'Liên Hệ', 'lien-he', '<p>\r\n	Liên Hệ\r\n</p>', '<p>\r\n	Liên Hệ\r\n</p>', 'contact.index', 'images/uploads/images/gt_1.jpg', 'Liên Hệ', '<p>\r\n	Liên Hệ\r\n</p>', 'Liên Hệ', 1, NULL, 1, 1, '2018-03-16 09:16:24', '2018-03-16 09:16:24'),
+(8, 'Lắp Đặt Phun Sương 1', 'lap-dat-phun-suong-1', '<p>\r\n	Lắp Đặt Phun Sương 1\r\n</p>', '<p>\r\n	Lắp Đặt Phun Sương 1\r\n</p>', 'serviceinfo.index', 'images/uploads/images/gt_1.jpg', 'Lắp Đặt Phun Sương 1', '<p>\r\n	Lắp Đặt Phun Sương 1\r\n</p>', 'Lắp Đặt Phun Sương 1', 3, 3, 1, 1, '2018-03-16 14:48:58', '2018-03-16 15:36:35'),
+(9, 'Lắp Đặt Phun Sương 2', 'lap-dat-phun-suong-2', '<p>\r\n	Lắp Đặt Phun Sương 2\r\n</p>', '<p>\r\n	Lắp Đặt Phun Sương 2\r\n</p>', 'serviceinfo.index', 'images/uploads/images/gt_1.jpg', 'Lắp Đặt Phun Sương 2', '<p>\r\n	Lắp Đặt Phun Sương 2\r\n</p>', 'Lắp Đặt Phun Sương 2', 3, 3, 1, 1, '2018-03-16 14:52:39', '2018-03-16 15:36:29'),
+(10, 'Sửa Chữa Phun Sương 1', 'sua-chua-phun-suong-1', '<p>\r\n	Sửa Chữa Phun Sương 1\r\n</p>', '<p>\r\n	Sửa Chữa Phun Sương 1\r\n</p>', 'serviceinfo.index', 'images/uploads/images/gt_1.jpg', 'Sửa Chữa Phun Sương 1', '<p>\r\n	Sửa Chữa Phun Sương 1\r\n</p>', 'Sửa Chữa Phun Sương 1', 3, 4, 1, 1, '2018-03-16 14:53:22', '2018-03-16 15:36:24'),
+(11, 'Sửa Chữa Phun Sương 2', 'sua-chua-phun-suong-2', '<p>\r\n	Sửa Chữa Phun Sương 2\r\n</p>', '<p>\r\n	Sửa Chữa Phun Sương 2\r\n</p>', 'serviceinfo.index', 'images/uploads/images/gt_1.jpg', 'Sửa Chữa Phun Sương 2', '<p>\r\n	Sửa Chữa Phun Sương 2\r\n</p>', 'Sửa Chữa Phun Sương 2', 3, 4, 1, 1, '2018-03-16 14:56:45', '2018-03-16 15:36:17');
 
 -- --------------------------------------------------------
 
@@ -301,11 +306,13 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `path`, `isActive`, `image`, `description`, `content`, `seo_title`, `seo_description`, `seo_keywords`, `template`, `price`, `sale`, `final_price`, `order`, `user_id`, `category_product_id`, `created_at`, `updated_at`) VALUES
-(1, 'aa', 'aa', 1, 'images/uploads/images/gt_1.jpg', '<p>\r\n	aa\r\n</p>', '<p>\r\n	aa\r\n</p>', 'aa', '<p>\r\n	aa\r\n</p>', 'aa', 'aabb', '10000', 30, '7000', 1, 1, 1, '2018-03-16 03:24:27', '2018-03-16 06:28:08'),
-(2, 'aa 353', 'aa-353', 1, 'images/uploads/images/gt_1.jpg', '<p>\r\n	aa\r\n</p>', '<p>\r\n	aa\r\n</p>', 'aa', '<p>\r\n	aa\r\n</p>', 'aa', 'aabb', '10000', 30, '7000', 1, 1, 1, '2018-03-16 03:24:27', '2018-03-16 06:28:08'),
-(4, 'aa 928', 'aa-928', 1, 'images/uploads/images/gt_1.jpg', '<p>\r\n	aa\r\n</p>', '<p>\r\n	aa\r\n</p>', 'aa', '<p>\r\n	aa\r\n</p>', 'aa', 'aabb', '10000', 30, '7000', 1, 1, 1, '2018-03-16 03:24:27', '2018-03-16 06:28:08'),
-(5, 'aa 353 823', 'aa-353-823', 1, 'images/uploads/images/gt_1.jpg', '<p>\r\n	aa\r\n</p>', '<p>\r\n	aa\r\n</p>', 'aa', '<p>\r\n	aa\r\n</p>', 'aa', 'aabb', '10000', 30, '7000', 1, 1, 1, '2018-03-16 03:24:27', '2018-03-16 06:28:08'),
-(6, 'aa 353 823 236', 'aa-353-823-236', 1, 'images/uploads/images/gt_1.jpg', '<p>\r\n	aa\r\n</p>', '<p>\r\n	aa\r\n</p>', 'aa', '<p>\r\n	aa\r\n</p>', 'aa', 'aabb', '10000', 30, '7000', 1, 1, 1, '2018-03-16 03:24:27', '2018-03-16 06:28:08');
+(1, 'aa', 'aa', 1, 'images/uploads/images/gt_1.jpg', '<p>\r\n	aa\r\n</p>', '<p>\r\n	aa\r\n</p>', 'aa', '<p>\r\n	aa\r\n</p>', 'aa', 'product.index', '10000', 30, '7000', 1, 1, 1, '2018-03-16 03:24:27', '2018-03-16 06:28:08'),
+(2, 'aa 353', 'aa-353', 1, 'images/uploads/images/gt_1.jpg', '<p>\r\n	aa\r\n</p>', '<p>\r\n	aa\r\n</p>', 'aa', '<p>\r\n	aa\r\n</p>', 'aa', 'product.index', '10000', 30, '7000', 1, 1, 2, '2018-03-16 03:24:27', '2018-03-16 16:24:45'),
+(4, 'aa 928', 'aa-928', 1, 'images/uploads/images/gt_1.jpg', '<p>\r\n	aa\r\n</p>', '<p>\r\n	aa\r\n</p>', 'aa', '<p>\r\n	aa\r\n</p>', 'aa', 'product.index', '10000', 30, '7000', 1, 1, 1, '2018-03-16 03:24:27', '2018-03-16 06:28:08'),
+(5, 'aa 353 823', 'aa-353-823', 1, 'images/uploads/images/gt_1.jpg', '<p>\r\n	aa\r\n</p>', '<p>\r\n	aa\r\n</p>', 'aa', '<p>\r\n	aa\r\n</p>', 'aa', 'product.index', '10000', 30, '7000', 1, 1, 1, '2018-03-16 03:24:27', '2018-03-16 06:28:08'),
+(6, 'aa 353 823 236', 'aa-353-823-236', 1, 'images/uploads/images/gt_1.jpg', '<p>\r\n	aa\r\n</p>', '<p>\r\n	aa\r\n</p>', 'aa', '<p>\r\n	aa\r\n</p>', 'aa', 'product.index', '10000', 30, '7000', 1, 1, 1, '2018-03-16 03:24:27', '2018-03-16 06:28:08'),
+(7, 'aa 437', 'aa-437', 1, 'images/uploads/images/gt_1.jpg', '<p>\r\n	aa\r\n</p>', '<p>\r\n	aa\r\n</p>', 'aa', '<p>\r\n	aa\r\n</p>', 'aa', 'product.index', '10000', 30, '7000', 1, 1, 1, '2018-03-16 03:24:27', '2018-03-16 23:54:01'),
+(8, 'aa 353 643', 'aa-353-643', 1, 'images/uploads/images/gt_1.jpg', '<p>\r\n	aa\r\n</p>', '<p>\r\n	aa\r\n</p>', 'aa', '<p>\r\n	aa\r\n</p>', 'aa', 'product.index', '10000', 30, '7000', 1, 1, 1, '2018-03-16 03:24:27', '2018-03-16 23:53:51');
 
 -- --------------------------------------------------------
 
@@ -489,12 +496,12 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `roles`
 --

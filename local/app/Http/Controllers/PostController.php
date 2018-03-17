@@ -16,7 +16,7 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
-        $posts = Post::whereNotIn('post_type', [1, 3])->orderBy('id', 'DESC')->get();
+        $posts = Post::whereNotIn('post_type', [1])->orderBy('id', 'DESC')->get();
         return view('backend.admin.post.index', compact('posts'))->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
@@ -27,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $dd_categorie_posts = CategoryPost::whereNotIn('id', [1, 3])->orderBy('order')->get();
+        $dd_categorie_posts = CategoryPost::where('type', CATEGORY_POST)->orderBy('order')->get();
         foreach ($dd_categorie_posts as $key => $data) {
             if ($data->level == CATEGORY_POST_CAP_1) {
                 $data->name = ' ---- ' . $data->name;
@@ -60,11 +60,12 @@ class PostController extends Controller
         $seoKeywords=$request->input('seo_keywords');
         $isActive = $request->input('post_is_active');
         $image = $request->input('image');
+        $template=$request->input('template');
         if ($image) {
             $image = substr($image, strpos($image, 'images'), strlen($image) - 1);
             $post->image = $image;
         }
-        $post_type = $request->input('parent');
+        $categoryPostId = $request->input('parent');
         if ($isActive) {
             $post->isActive = 1;
         } else {
@@ -86,7 +87,9 @@ class PostController extends Controller
         $post->path = chuyen_chuoi_thanh_path($title);
 
         $post->content = $content;
-        $post->post_type = $post_type;
+        $post->template = $template;
+        $post->post_type = 2;
+        $post->category_post_id=$categoryPostId;
         $post->user_id = Auth::user()->id;
         $post->save();
         return redirect()->route('post.index')->with('success', 'Tạo Mới Thành Công Bài Viết');
@@ -112,7 +115,7 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-        $dd_categorie_posts = CategoryPost::orderBy('order')->get();
+        $dd_categorie_posts = CategoryPost::where('type', CATEGORY_POST)->orderBy('order')->get();
         foreach ($dd_categorie_posts as $key => $data) {
             if ($data->level == CATEGORY_POST_CAP_1) {
                 $data->name = ' ---- ' . $data->name;
@@ -149,6 +152,7 @@ class PostController extends Controller
         $seoKeywords=$request->input('seo_keywords');
         $isActive = $request->input('post_is_active');
         $image = $request->input('image');
+        $template=$request->input('template');
         if ($image) {
             $image = substr($image, strpos($image, 'images'), strlen($image) - 1);
             $post->image = $image;
@@ -177,6 +181,7 @@ class PostController extends Controller
         $post->path = chuyen_chuoi_thanh_path($title);
 
         $post->content = $content;
+        $post->template = $template;
         $post->post_type = $post_type;
         $post->user_id = Auth::user()->id;
         $post->save();
