@@ -12,7 +12,9 @@ interface FrontendRepositoryInterface
 
     public function getAllListCategoryAndProduct();
 
-    public function getProductInfo($categoryPath,$productPath);
+    public function getProductInfo($categoryPath, $productPath);
 
-    public function getServiceInfo($categoryPath,$servicePath);
+    public function getServiceInfo($categoryPath, $servicePath);
+
+    public function getFooterInfo();
 }

@@ -13,10 +13,8 @@ class FrontendServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer(
-            '*',
-            'App\Http\ViewComposers\SidebarComposer'
-        );
+        view()->composer('*', 'App\Http\ViewComposers\SidebarComposer');
+        view()->composer('*', 'App\Http\ViewComposers\FrontendComposer');
     }
 
     /**
@@ -26,9 +24,6 @@ class FrontendServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(
-            \App\Repositories\Frontend\FrontendRepositoryInterface::class,
-            \App\Repositories\Frontend\FrontendRepository::class
-        );
+        $this->app->singleton(\App\Repositories\Frontend\FrontendRepositoryInterface::class, \App\Repositories\Frontend\FrontendRepository::class);
     }
 }

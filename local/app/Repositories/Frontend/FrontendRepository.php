@@ -35,7 +35,7 @@ class FrontendRepository implements FrontendRepositoryInterface
     {
         $data = [];
         $categoryPost = CategoryPost::where('path', $path)->first();
-        $posts=Post::where('category_post_id',$categoryPost->id)->get();
+        $posts = Post::where('category_post_id', $categoryPost->id)->get();
         $page = Post::find($categoryPost->page_id);
         $data['categoryPost'] = $categoryPost;
         $data['posts'] = $posts;
@@ -45,33 +45,43 @@ class FrontendRepository implements FrontendRepositoryInterface
 
     public function getAllListCategoryAndProduct()
     {
-        $categoryProducts=CategoryPost::where('type',1)->get();
-        foreach ($categoryProducts as $key=>$data){
-            $products=Product::where('category_product_id',$data->id)->take(8)->get();
-            $data['products']=$products;
+        $categoryProducts = CategoryPost::where('type', 1)->get();
+        foreach ($categoryProducts as $key => $data) {
+            $products = Product::where('category_product_id', $data->id)->take(8)->get();
+            $data['products'] = $products;
         }
-        $data['categoryProducts']=$categoryProducts;
+        $data['categoryProducts'] = $categoryProducts;
+        $categoryProject = CategoryPost::where('id', 6)->first();
+        $projects = Post::where('category_post_id', 6)->get();
+        $data['projects'] = $projects;
+        $data['categoryProject'] = $categoryProject;
         return $data;
     }
 
     public function getProductInfo($categoryPath, $productPath)
     {
-        $data=[];
-        $product=Product::where('path',$productPath)->first();
-        $orther=Product::where('category_product_id',$product->category_product_id)->where('id','!=',$product->id)->get();
-        $data['product']=$product;
-        $data['orther']=$orther;
+        $data = [];
+        $product = Product::where('path', $productPath)->first();
+        $orther = Product::where('category_product_id', $product->category_product_id)->where('id', '!=', $product->id)->get();
+        $data['product'] = $product;
+        $data['orther'] = $orther;
         return $data;
     }
 
     public function getServiceInfo($categoryPath, $servicePath)
     {
-        $data=[];
-        $service=Post::where('path',$servicePath)->first();
-        $orther=Post::where('category_product_id',$service->category_post_id)->where('id','!=',$service->id)->get();
-        $data['service']=$service;
-        $data['orther']=$orther;
+        $data = [];
+        $service = Post::where('path', $servicePath)->first();
+        $orther = Post::where('category_post_id', $service->category_post_id)->where('id', '!=', $service->id)->get();
+        $data['service'] = $service;
+        $data['orther'] = $orther;
         return $data;
+    }
+
+    public function getFooterInfo()
+    {
+        $listFooterCategory = CategoryPost::where('type', 1)->get();
+        return $listFooterCategory;
     }
 
 

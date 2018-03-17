@@ -4,28 +4,23 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <h3>ABC.COM</h3>
+                    <h3>HUY HOÀI</h3>
                     <ul>
 
-                        <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i><span>55/4 KP3 Hà Huy Giáp, Q.12, TPHCM</span></a>
+                        <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i><span>Đường số 5, Quốc lộ 13, P Hiệp Bình Chánh, Q Thú Đức .Tp. Hồ Chí Minh</span></a>
                         </li>
                         <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i><span>Chăm sóc khách hàng: </br>
-                                    0965322239</br>
+                                    0971.703.972</br>
                                     Từ 8h00-17h00 các ngày thứ 2 đến thứ 7</span></a></li>
-                        <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i><span>dentrangtrithinhphat@gmail
-                                    .com</span></a></li>
+                        <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i><span>phunsuongduyhuy@gmail.com</span></a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
                     <h3>Danh Sách Sản Phẩm</h3>
                     <ul>
-                        {{--@foreach($menu_horizon as $key=>$data)--}}
-                            {{--<li><a href="{{URL::to('danh-muc/'.$data->path)}}">{{$data->name}}</a></li>--}}
-                        {{--@endforeach--}}
-                        <li><a href="#">Đèn Gian Bếp</a></li>
-                        <li><a href="#">Đèn Hành Lang</a></li>
-                        <li><a href="#">Đèn Showroom - Nhà Hàng</a></li>
-                        <li><a href="#">Thiết Bị Khác</a></li>
+                        @foreach($listFooterCategory as $key=>$data)
+                            <li><a href="{{URL::to('danh-muc/'.$data->path)}}">{{$data->name}}</a></li>
+                        @endforeach
                     </ul>
                 </div>
                 {{--<div class="col-md-3">--}}

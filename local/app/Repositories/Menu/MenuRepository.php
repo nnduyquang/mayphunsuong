@@ -25,7 +25,7 @@ class MenuRepository extends EloquentRepository implements MenuRepositoryInterfa
                 }
             }else if($data->type == 2){
                 $categoryPost=CategoryPost::where('id', $data->content_id)->first();
-                $data['url'] = 'danh-muc/'.$categoryPost->path;
+                $data['url'] = $categoryPost->path;
             }
             unset($data->name);
         }

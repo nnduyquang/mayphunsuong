@@ -10,9 +10,9 @@
             <div class="row">
                 @foreach($data['orther'] as $key=>$item)
                 <div class="one-service col-md-3 card">
-                    <a href="{{URL::to('dich-vu/'.$data['service']->path.'/'.$item->path)}}"> {{Html::image($item->path,'',array('class'=>'one-service-img'))}}</a>
+                    <a href="{{URL::to('dich-vu/'.$data['service']->path.'/'.$item->path)}}"> {{Html::image($item->image,'',array('class'=>'one-service-img'))}}</a>
                     <div class="card-body">
-                        <h4 class="title-service"><a href="{{URL::to('dich-vu/'.$data['service']->path.'/'.$item->path)}}">Lắp Đặt Phun Sương Quận 2n</a></h4>
+                        <h4 class="title-service"><a href="{{URL::to('dich-vu/'.$data['service']->path.'/'.$item->path)}}">{{$item->title}}</a></h4>
                     </div>
                 </div>
                 @endforeach

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2018 at 02:07 AM
+-- Generation Time: Mar 17, 2018 at 04:05 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.27
 
@@ -74,7 +74,8 @@ INSERT INTO `category_posts` (`id`, `name`, `path`, `level`, `template`, `type`,
 (2, 'Linh Kiện Phun Sương', 'linh-kien-phun-suong', 0, 'category.index', 1, NULL, 2, 2, '2018-03-16 01:42:53', '2018-03-16 01:42:53'),
 (3, 'Lắp Đặt Phun Sương', 'lap-dat-phun-suong', 0, 'service.index', 0, NULL, 4, 1, '2018-03-16 09:02:35', '2018-03-16 09:02:35'),
 (4, 'Sửa Chữa Phun Sương', 'sua-chua-phun-suong', 0, 'service.index', 0, NULL, 5, 2, '2018-03-16 09:02:59', '2018-03-16 09:02:59'),
-(5, 'Lắp Đặt Phun Sương Tỉnh', 'lap-dat-phun-suong-tinh', 0, 'service.index', 0, NULL, 6, 3, '2018-03-16 09:03:19', '2018-03-16 09:03:19');
+(5, 'Lắp Đặt Phun Sương Tỉnh', 'lap-dat-phun-suong-tinh', 0, 'service.index', 0, NULL, 6, 3, '2018-03-16 09:03:19', '2018-03-16 09:03:19'),
+(6, 'Dự Án Đã Thực Hiện', 'du-an-da-thuc-hien', 0, 'service.index', 0, NULL, 12, 4, '2018-03-17 02:41:49', '2018-03-17 02:41:49');
 
 -- --------------------------------------------------------
 
@@ -271,7 +272,9 @@ INSERT INTO `posts` (`id`, `title`, `path`, `description`, `content`, `template`
 (8, 'Lắp Đặt Phun Sương 1', 'lap-dat-phun-suong-1', '<p>\r\n	Lắp Đặt Phun Sương 1\r\n</p>', '<p>\r\n	Lắp Đặt Phun Sương 1\r\n</p>', 'serviceinfo.index', 'images/uploads/images/gt_1.jpg', 'Lắp Đặt Phun Sương 1', '<p>\r\n	Lắp Đặt Phun Sương 1\r\n</p>', 'Lắp Đặt Phun Sương 1', 3, 3, 1, 1, '2018-03-16 14:48:58', '2018-03-16 15:36:35'),
 (9, 'Lắp Đặt Phun Sương 2', 'lap-dat-phun-suong-2', '<p>\r\n	Lắp Đặt Phun Sương 2\r\n</p>', '<p>\r\n	Lắp Đặt Phun Sương 2\r\n</p>', 'serviceinfo.index', 'images/uploads/images/gt_1.jpg', 'Lắp Đặt Phun Sương 2', '<p>\r\n	Lắp Đặt Phun Sương 2\r\n</p>', 'Lắp Đặt Phun Sương 2', 3, 3, 1, 1, '2018-03-16 14:52:39', '2018-03-16 15:36:29'),
 (10, 'Sửa Chữa Phun Sương 1', 'sua-chua-phun-suong-1', '<p>\r\n	Sửa Chữa Phun Sương 1\r\n</p>', '<p>\r\n	Sửa Chữa Phun Sương 1\r\n</p>', 'serviceinfo.index', 'images/uploads/images/gt_1.jpg', 'Sửa Chữa Phun Sương 1', '<p>\r\n	Sửa Chữa Phun Sương 1\r\n</p>', 'Sửa Chữa Phun Sương 1', 3, 4, 1, 1, '2018-03-16 14:53:22', '2018-03-16 15:36:24'),
-(11, 'Sửa Chữa Phun Sương 2', 'sua-chua-phun-suong-2', '<p>\r\n	Sửa Chữa Phun Sương 2\r\n</p>', '<p>\r\n	Sửa Chữa Phun Sương 2\r\n</p>', 'serviceinfo.index', 'images/uploads/images/gt_1.jpg', 'Sửa Chữa Phun Sương 2', '<p>\r\n	Sửa Chữa Phun Sương 2\r\n</p>', 'Sửa Chữa Phun Sương 2', 3, 4, 1, 1, '2018-03-16 14:56:45', '2018-03-16 15:36:17');
+(11, 'Sửa Chữa Phun Sương 2', 'sua-chua-phun-suong-2', '<p>\r\n	Sửa Chữa Phun Sương 2\r\n</p>', '<p>\r\n	Sửa Chữa Phun Sương 2\r\n</p>', 'serviceinfo.index', 'images/uploads/images/gt_1.jpg', 'Sửa Chữa Phun Sương 2', '<p>\r\n	Sửa Chữa Phun Sương 2\r\n</p>', 'Sửa Chữa Phun Sương 2', 3, 4, 1, 1, '2018-03-16 14:56:45', '2018-03-16 15:36:17'),
+(12, 'Dự Án Đã Thực Hiện', 'du-an-da-thuc-hien', '<p>\r\n	Dự Án Đã Thực Hiện\r\n</p>', '<p>\r\n	Dự Án Đã Thực Hiện\r\n</p>', NULL, 'images/uploads/images/gt_1.jpg', 'Dự Án Đã Thực Hiện', '<p>\r\n	Dự Án Đã Thực Hiện\r\n</p>', 'Dự Án Đã Thực Hiện', 1, NULL, 1, 1, '2018-03-17 02:40:23', '2018-03-17 02:40:23'),
+(13, 'Công Trình Quận 10', 'cong-trinh-quan-10', '<p>\r\n	Công Trình Quận 10\r\n</p>', '<p>\r\n	Công Trình Quận 10\r\n</p>', 'serviceinfo.index', 'images/uploads/images/gt_1.jpg', 'Công Trình Quận 10', '<p>\r\n	Công Trình Quận 10\r\n</p>', 'Công Trình Quận 10', 2, 6, 1, 1, '2018-03-17 02:44:57', '2018-03-17 02:44:57');
 
 -- --------------------------------------------------------
 
@@ -476,7 +479,7 @@ ALTER TABLE `category_permissions`
 -- AUTO_INCREMENT for table `category_posts`
 --
 ALTER TABLE `category_posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `menus`
 --
@@ -496,7 +499,7 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `products`
 --

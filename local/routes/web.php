@@ -13,9 +13,9 @@ Route::get('/danh-muc/{path}', 'FrontendController@getProductByCategory');
 Route::get('/danh-muc/{categoryPath}/{productPath}','FrontendController@getProductInfo');
 
 Route::get('/dich-vu/{path}','FrontendController@getServiceByCategory');
-Route::get('/dich-vu/lap-dat-may-phun-suong/lap-dat-phun-suong-quan-4', function () {
-    return view('frontend.serviceinfo.index');
-});
+//Route::get('/dich-vu/lap-dat-may-phun-suong/lap-dat-phun-suong-quan-4', function () {
+//    return view('frontend.serviceinfo.index');
+//});
 Route::get('/dich-vu/{categoryPath}/{servicePath}','FrontendController@getServiceInfo');
 
 Route::get('/lien-he', function () {

@@ -37,7 +37,7 @@ class FrontendController extends Controller
     }
 
     public function getServiceInfo($categoryPath, $servicePath){
-        $data = $this->frontendRepository->getProductInfo($categoryPath, $servicePath);
+        $data = $this->frontendRepository->getServiceInfo($categoryPath, $servicePath);
         return view('frontend.'.$data['service']->template,compact('data'));
     }
 }
