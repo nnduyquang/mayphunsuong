@@ -70,7 +70,7 @@
                 </div>
             </div>
             <div class="col-md-12" style="text-align:  center;">
-                <button id="btnDanhMuc" type="submit" class="btn btn-primary">Tạo Mới Chuyên Mục Sản Phẩm</button>
+                <button id="btnDanhMuc" type="submit" class="btn btn-primary">Cập Nhật Chuyên Mục Sản Phẩm</button>
             </div>
         </div>
     </div>

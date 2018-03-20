@@ -38,7 +38,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <strong>Hình Đại Diện: </strong>
-                    {!! Form::text('image', url('/').'/'.$product->image, array('class' => 'form-control','id'=>'pathImagePage')) !!}
+                    {!! Form::text('image', url('/').'/'.$product->image, array('class' => 'form-control','id'=>'pathImageProduct')) !!}
                     <br>
                     {!! Form::button('Tìm', array('id' => 'btnBrowseImageProduct','class'=>'btn btn-primary')) !!}
                 </div>
@@ -58,16 +58,22 @@
                     </select>
                 </div>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
                             <strong>Giá: </strong>
                             {!! Form::text('price',null, array('placeholder' => 'Tên','class' => 'form-control')) !!}
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
                             <strong>% Giảm Giá: </strong>
                             {!! Form::text('sale',null, array('placeholder' => 'Tên','class' => 'form-control')) !!}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <strong>Giá Giảm: </strong>
+                            {!! Form::text('final_price',null, array('placeholder' => 'Tên','class' => 'form-control')) !!}
                         </div>
                     </div>
                 </div>

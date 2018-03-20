@@ -181,14 +181,14 @@ img {
   padding: 10px;
 }
 
-#sidebar .one-item ul {
+#sidebar .one-item ul.ul-normal {
   display: block;
   -webkit-box-shadow: 0px 3px 13px 0px rgba(136, 136, 136, 0.25);
           box-shadow: 0px 3px 13px 0px rgba(136, 136, 136, 0.25);
   list-style: none;
 }
 
-#sidebar .one-item ul li a {
+#sidebar .one-item ul.ul-normal li a {
   color: #59a160;
   display: block;
   padding: 10px;
@@ -200,8 +200,19 @@ img {
   font-size: 14px;
 }
 
-#sidebar .one-item ul li a:hover {
+#sidebar .one-item ul.ul-normal li a:hover {
   padding-left: 20px;
+}
+
+#sidebar .one-item ul.ul-ht-info {
+  display: block;
+  -webkit-box-shadow: 0px 3px 13px 0px rgba(136, 136, 136, 0.25);
+          box-shadow: 0px 3px 13px 0px rgba(136, 136, 136, 0.25);
+  list-style: none;
+}
+
+#sidebar .one-item ul.ul-ht-info li {
+  padding: 10px;
 }
 
 #sidebar .one-item img.sidebar-img {

@@ -68,13 +68,31 @@ class ProductController extends Controller
         $template = $request->input('template');
         $price = $request->input('price');
         $sale = $request->input('sale');
-        if ($price) {
-            $product->price = $price;
-            if ($sale) {
+        $finalSale = $request->input('final_price');
+        if (!IsNullOrEmptyString($price)) {
+            if (!IsNullOrEmptyString($sale)) {
+                $product->price = $price;
                 $product->sale = $sale;
-                if ($sale != 0 && $price != 0) $product->final_price = (int)$price - ((int)$price * (int)$sale / 100);
+                $product->final_price = $finalSale;
+            } else {
+                $product->price = $price;
+                $product->sale = 0;
+                $product->final_price = 0;
             }
+        } else {
+            $product->price = 0;
+            $product->sale = 0;
+            $product->final_price = 0;
         }
+//        $price = $request->input('price');
+//        $sale = $request->input('sale');
+//        if ($price) {
+//            $product->price = $price;
+//            if ($sale) {
+//                $product->sale = $sale;
+//                if ($sale != 0 && $price != 0) $product->final_price = (int)$price - ((int)$price * (int)$sale / 100);
+//            }
+//        }
         if ($order) {
             $product->order = $order;
         }
@@ -156,6 +174,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $product = Product::find($id);
         $name = $request->input('name');
         $description = $request->input('description');
@@ -169,13 +188,37 @@ class ProductController extends Controller
         $template = $request->input('template');
         $price = $request->input('price');
         $sale = $request->input('sale');
-        if ($price) {
-            $product->price = $price;
-            if ($sale) {
+        $finalSale = $request->input('final_price');
+        if (!IsNullOrEmptyString($price)) {
+            if (!IsNullOrEmptyString($sale)) {
+                $product->price = $price;
                 $product->sale = $sale;
-                if ($sale != 0 && $price != 0) $product->final_price = (int)$price - ((int)$price * (int)$sale / 100);
+                $product->final_price = $finalSale;
+            } else {
+                $product->price = $price;
+                $product->sale = 0;
+                $product->final_price = 0;
             }
+        } else {
+            $product->price = 0;
+            $product->sale = 0;
+            $product->final_price = 0;
         }
+//        if (!IsNullOrEmptyString($price)) {
+//            $product->price = $price;
+//            if (!IsNullOrEmptyString($sale)) {
+//                $product->sale = $sale;
+//                if ($sale != 0 && $price != 0)
+//                    $product->final_price = (int)$price - ((int)$price * (int)$sale / 100);
+//                else
+//                    $product->final_price=0;
+//            }
+//        }
+//        else{
+//            $product->price=0;
+//            $product->sale = 0;
+//            $product->final_price=0;
+//        }
         if ($order) {
             $product->order = $order;
         }
@@ -243,7 +286,7 @@ class ProductController extends Controller
     public function paste(Request $request)
     {
         $listId = $request->input('listID');
-        $products = Product::find(explode(',',$listId));
+        $products = Product::find(explode(',', $listId));
         foreach ($products as $key => $data) {
             $data->name = $data->name . ' ' . rand(pow(10, 2), pow(10, 3) - 1);
             $data->path = chuyen_chuoi_thanh_path($data->name);

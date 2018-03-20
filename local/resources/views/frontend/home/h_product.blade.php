@@ -19,7 +19,7 @@
                                         @if($item2->sale!=0)
                                             <span class="price-saving">{{$item2->price}}₫</span>
                                         @endif
-                                        <span class="price-sale">{{$item2->final_price}}₫</span>
+                                        <span class="price-sale">{{$item2->price}}₫</span>
                                     @else
                                         <span class="price-contact">Liên Hệ</span>
                                     @endif

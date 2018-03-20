@@ -67,7 +67,7 @@ class CategoryProductController extends Controller
         $order = $request->input('order');
         $parentID = $request->input('parent');
         $pageId = $request->input('page_id');
-//        $template = $request->input('template');
+        $template = $request->input('template');
         if ($parentID != CATEGORY_POST_CAP_CHA) {
             $categorypost->parent_id = $parentID;
             $level = CategoryPost::where('id', '=', $parentID)->first()->level;
@@ -78,7 +78,7 @@ class CategoryProductController extends Controller
             $categorypost->order = $order;
         }
         $categorypost->page_id = $pageId;
-//        $categorypost->template = $template;
+        $categorypost->template = $template;
         $categorypost->name = $name;
         $categorypost->type = CATEGORY_PRODUCT;
         $categorypost->path = chuyen_chuoi_thanh_path($name);
@@ -142,7 +142,7 @@ class CategoryProductController extends Controller
             $categorypost->order = $order;
         }
         $parentID = $request->input('parent');
-//        $template = $request->input('template');
+        $template = $request->input('template');
         $pageId = $request->input('page_id');
         if ($parentID != $categorypost->parent_id) {
             if ($parentID != CATEGORY_POST_CAP_CHA) {
@@ -155,7 +155,7 @@ class CategoryProductController extends Controller
             }
         }
         $categorypost->page_id = $pageId;
-//        $categorypost->template = $template;
+        $categorypost->template = $template;
         $categorypost->type = CATEGORY_PRODUCT;
         $categorypost->name = $name;
         $categorypost->path = chuyen_chuoi_thanh_path($name);
