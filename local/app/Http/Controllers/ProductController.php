@@ -227,8 +227,10 @@ class ProductController extends Controller
         } else {
             $product->isActive = 0;
         }
-        if ($description) {
+        if (!IsNullOrEmptyString($description)) {
             $product->description = $description;
+        } else {
+            $product->description = null;
         }
         if ($seoTitle) {
             $product->seo_title = $seoTitle;

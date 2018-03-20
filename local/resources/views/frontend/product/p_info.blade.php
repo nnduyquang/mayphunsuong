@@ -6,11 +6,13 @@
         <div id="p-short-info" class="col-md-6">
             <h1 class="title">{{$data['product']->name}}</h1>
             @if($data['product']->price!=0)
-                <span class="price-sale">{{$data['product']->final_price}} VND</span>
                 @if($data['product']->sale!=0)
+                    <span class="price-sale">{{$data['product']->final_price}} VND</span>
                     <span class="price-nosale">Giá Trước Đây: <span> {{$data['product']->price}}
                             VND</span></span>
                     <span class="price-saving">Tiết Kiệm:{{$data['product']->sale}}%</span>
+                @else
+                    <span class="price-sale">{{$data['product']->price}} VND</span>
                 @endif
             @else
                 <span class="price-contact">Liên Hệ</span>
@@ -31,7 +33,9 @@
                                 <span class="discount">{{$item->sale}}%</span>
                             @endif
                             <div class="card-body">
-                                <h4 class="title-product"><a href="{{URL::to('danh-muc/'.$data['product']->path.'/'.$item->path)}}">{{$item->name}}</a></h4>
+                                <h4 class="title-product"><a
+                                            href="{{URL::to('danh-muc/'.$data['product']->path.'/'.$item->path)}}">{{$item->name}}</a>
+                                </h4>
                             </div>
                             <div class="card-footer">
                                 <div class="card-group">
