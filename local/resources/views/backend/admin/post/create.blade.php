@@ -58,11 +58,11 @@
             {!! Form::textarea('content',null,array('placeholder' => '','id'=>'content-post','class' => 'form-control','rows'=>'10','style'=>'resize:none')) !!}
 
         </div>
-        <div class="col-md-6 p-0">
-            <strong>Chọn Giao Diện Bài Viết:</strong>
-            {{Form::text('template','',array('class'=>'form-control'))}}
+        {{--<div class="col-md-6 p-0">--}}
+            {{--<strong>Chọn Giao Diện Bài Viết:</strong>--}}
+            {{--{{Form::text('template','',array('class'=>'form-control'))}}--}}
 
-        </div>
+        {{--</div>--}}
         <hr>
         <div class="col-md-12 p-0">
             <h3>SEO</h3>

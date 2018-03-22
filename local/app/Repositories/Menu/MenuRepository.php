@@ -11,7 +11,7 @@ class MenuRepository extends EloquentRepository implements MenuRepositoryInterfa
 {
     public function getAllMenuTree()
     {
-        $menus = Menu::orderBy('order')->get(['id', 'name','order', 'type', 'isActive', 'content_id', 'parent_id', 'level']);
+        $menus = Menu::orderBy('order')->get(['id', 'name','order', 'type', 'isActive','isMain', 'content_id', 'parent_id', 'level']);
         $children = array();
         foreach ($menus as $key => $data) {
             $data['children'] = $children;

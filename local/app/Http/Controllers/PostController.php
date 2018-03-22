@@ -87,7 +87,7 @@ class PostController extends Controller
         $post->path = chuyen_chuoi_thanh_path($title);
 
         $post->content = $content;
-        $post->template = $template;
+        $post->template = 'serviceinfo.index';
         $post->post_type = 2;
         $post->category_post_id=$categoryPostId;
         $post->user_id = Auth::user()->id;
@@ -160,6 +160,7 @@ class PostController extends Controller
             $post->image = NULL;
         }
         $post_type = $request->input('parent');
+        $categoryPostId = $request->input('parent');
         if ($isActive) {
             $post->isActive = 1;
         } else {
@@ -181,8 +182,9 @@ class PostController extends Controller
         $post->path = chuyen_chuoi_thanh_path($title);
 
         $post->content = $content;
-        $post->template = $template;
+        $post->template = 'serviceinfo.index';
         $post->post_type = $post_type;
+        $post->category_post_id=$categoryPostId;
         $post->user_id = Auth::user()->id;
         $post->save();
         return redirect()->route('post.index')->with('success', 'Cập Nhật Thành Công Bài Viết');

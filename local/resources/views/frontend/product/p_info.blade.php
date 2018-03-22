@@ -1,7 +1,7 @@
 <div id="p_info" class="col-md-12">
     <div class="row">
         <div class="col-md-6">
-            {{Html::image('images/temps/home/tmp_home_h_product_img_product.jpg','',array('class'=>'product-img'))}}
+            {{Html::image($data['product']->image,'',array('class'=>'product-img'))}}
         </div>
         <div id="p-short-info" class="col-md-6">
             <h1 class="title">{{$data['product']->name}}</h1>

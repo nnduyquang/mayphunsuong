@@ -79,7 +79,7 @@ class CategoryPostController extends Controller
             $categorypost->order = $order;
         }
         $categorypost->page_id = $pageId;
-        $categorypost->template = $template;
+        $categorypost->template = 'service.index';
         $categorypost->name = $name;
         $categorypost->type = CATEGORY_POST;
         $categorypost->path = chuyen_chuoi_thanh_path($name);
@@ -143,7 +143,7 @@ class CategoryPostController extends Controller
             $categorypost->order = $order;
         }
         $parentID = $request->input('parent');
-        $template = $request->input('template');
+//        $template = $request->input('template');
         $pageId = $request->input('page_id');
         if ($parentID != $categorypost->parent_id) {
             if ($parentID != CATEGORY_POST_CAP_CHA) {
@@ -156,7 +156,7 @@ class CategoryPostController extends Controller
             }
         }
         $categorypost->page_id = $pageId;
-        $categorypost->template = $template;
+        $categorypost->template = 'service.index';
         $categorypost->type = CATEGORY_POST;
         $categorypost->name = $name;
         $categorypost->path = chuyen_chuoi_thanh_path($name);

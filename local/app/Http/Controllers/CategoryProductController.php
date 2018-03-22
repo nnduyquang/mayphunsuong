@@ -78,7 +78,7 @@ class CategoryProductController extends Controller
             $categorypost->order = $order;
         }
         $categorypost->page_id = $pageId;
-        $categorypost->template = $template;
+        $categorypost->template = 'category.index';
         $categorypost->name = $name;
         $categorypost->type = CATEGORY_PRODUCT;
         $categorypost->path = chuyen_chuoi_thanh_path($name);
@@ -155,7 +155,7 @@ class CategoryProductController extends Controller
             }
         }
         $categorypost->page_id = $pageId;
-        $categorypost->template = $template;
+        $categorypost->template = 'category.index';
         $categorypost->type = CATEGORY_PRODUCT;
         $categorypost->name = $name;
         $categorypost->path = chuyen_chuoi_thanh_path($name);

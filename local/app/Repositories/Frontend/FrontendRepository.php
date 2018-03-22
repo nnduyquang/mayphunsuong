@@ -24,6 +24,10 @@ class FrontendRepository implements FrontendRepositoryInterface
         $data = [];
         $categoryProduct = CategoryPost::where('path', $path)->first();
         $products = Product::where('category_product_id', $categoryProduct->id)->get();
+        foreach ($products as $key => $data) {
+            $data->price = number_format($data->price, 0, ',', '.');
+            $data->final_price = number_format($data->final_price, 0, ',', '.');
+        }
         $page = Post::find($categoryProduct->page_id);
         $data['categoryProduct'] = $categoryProduct;
         $data['products'] = $products;
@@ -48,6 +52,10 @@ class FrontendRepository implements FrontendRepositoryInterface
         $categoryProducts = CategoryPost::where('type', 1)->get();
         foreach ($categoryProducts as $key => $data) {
             $products = Product::where('category_product_id', $data->id)->take(8)->get();
+            foreach ($products as $key2 => $data2) {
+                $data2->price = number_format($data2->price, 0, ',', '.');
+                $data2->final_price = number_format($data2->final_price, 0, ',', '.');
+            }
             $data['products'] = $products;
         }
         $data['categoryProducts'] = $categoryProducts;
@@ -62,7 +70,13 @@ class FrontendRepository implements FrontendRepositoryInterface
     {
         $data = [];
         $product = Product::where('path', $productPath)->first();
+        $product->price = number_format($product->price, 0, ',', '.');
+        $product->final_price = number_format($product->final_price, 0, ',', '.');
         $orther = Product::where('category_product_id', $product->category_product_id)->where('id', '!=', $product->id)->get();
+        foreach ($orther as $key => $data) {
+            $data->price = number_format($data->price, 0, ',', '.');
+            $data->final_price = number_format($data->final_price, 0, ',', '.');
+        }
         $data['product'] = $product;
         $data['orther'] = $orther;
         return $data;
@@ -82,6 +96,12 @@ class FrontendRepository implements FrontendRepositoryInterface
     {
         $listFooterCategory = CategoryPost::where('type', 1)->get();
         return $listFooterCategory;
+    }
+
+    public function getMainPage($path)
+    {
+        $page = Post::where('path', $path)->get();
+        return $page;
     }
 
 

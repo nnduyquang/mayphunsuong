@@ -18,12 +18,14 @@ Route::get('/dich-vu/{path}','FrontendController@getServiceByCategory');
 //});
 Route::get('/dich-vu/{categoryPath}/{servicePath}','FrontendController@getServiceInfo');
 
-Route::get('/lien-he', function () {
-    return view('frontend.contact.index');
-});
+//Route::get('/lien-he', function () {
+//    return view('frontend.contact.index');
+//});
 Route::get('/tim-kiem/keyword', function () {
     return view('frontend.search.index');
 });
+
+Route::get('/{path}', 'FrontendController@getMainPage');
 
 
 

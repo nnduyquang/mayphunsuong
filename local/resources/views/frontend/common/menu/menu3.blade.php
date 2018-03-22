@@ -1,4 +1,4 @@
-<div id="menu" class="container-fluid p-0">
+<div id="menu" class="container-fluid p-0 d-none d-md-block">
     <div id="menu_top">
         <div class="container">
             <div class="col-md-12">
@@ -31,22 +31,27 @@
                     <li class="li-normal"><a href="{{URL::to('/')}}">Trang Chủ</a></li>
                     @foreach($listMenu as$key=>$data)
                         @if(count($data->children)==0)
-                            <li class="li-normal"><a href="{{URL::to('danh-muc/'.$data->url)}}"
-                                                     class="">{{$data->text}}</a>
+                            @if($data->isMain==0)
+                                <li class="li-normal"><a href="{{URL::to('danh-muc/'.$data->url)}}"
+                                                         class="">{{$data->text}}</a>
+                            @else
+                                <li class="li-normal"><a href="{{URL::to($data->url)}}"
+                                                         class="">{{$data->text}}</a>
+                            @endif
                         @else
                             <li class="has-item-down"><a href="{{URL::to($data->url)}}"
                                                          class="">{{$data->text}}</a>
                                 <div class="drop-down col-md-12">
                                     <div class="row">
                                         @foreach($data->children as$key2=>$data2)
-                                        <div class="col-md-3 text-center card p-0">
-                                            <a href="{{URL::to('dich-vu/'.$data2->url)}}">
-                                                {{ Html::image('images/temps/menu/menu3/menu3_1.jpg','',array('class'=>''))}}
-                                                <div class="card-body">
-                                                    <h4 class="title">{{$data2->text}}</h4>
-                                                </div>
-                                            </a>
-                                        </div>
+                                            <div class="col-md-3 text-center card p-0">
+                                                <a href="{{URL::to('dich-vu/'.$data2->url)}}">
+                                                    {{ Html::image('images/temps/menu/menu3/menu3_1.jpg','',array('class'=>''))}}
+                                                    <div class="card-body">
+                                                        <h4 class="title">{{$data2->text}}</h4>
+                                                    </div>
+                                                </a>
+                                            </div>
                                         @endforeach
                                     </div>
                                 </div>

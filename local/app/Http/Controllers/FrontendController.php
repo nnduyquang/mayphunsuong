@@ -40,5 +40,10 @@ class FrontendController extends Controller
         $data = $this->frontendRepository->getServiceInfo($categoryPath, $servicePath);
         return view('frontend.'.$data['service']->template,compact('data'));
     }
+
+    public function getMainPage($path){
+        $data=$this->frontendRepository->getMainPage($path);
+        return view('frontend.'.$data[0]->template,compact('data'));
+    }
 }
 

@@ -44,10 +44,10 @@
                     <strong>Menu Cấp</strong>
                     {!! Form::select('parent',$dd_categorie_posts, null,array('class' => 'form-control')) !!}
                 </div>
-                <div class="form-group">
-                    <strong>Chọn Giao Diện:</strong>
-                    {{Form::text('template','',array('class'=>'form-control'))}}
-                </div>
+                {{--<div class="form-group">--}}
+                    {{--<strong>Chọn Giao Diện:</strong>--}}
+                    {{--{{Form::text('template','',array('class'=>'form-control'))}}--}}
+                {{--</div>--}}
                 <div class="form-group">
                     <strong>Thứ Tự:</strong>
                     {!! Form::text('order',null, array('placeholder' => 'Thứ Tự','class' => 'form-control')) !!}

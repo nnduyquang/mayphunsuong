@@ -25,18 +25,18 @@
             </li>
         </ul>
     </div>
-    <div class="one-item">
-        {{Html::image('images/temps/home/tmp_home_h_product_img_product.jpg','',array('class'=>'sidebar-img'))}}
-    </div>
-    <div class="one-item">
-        {{Html::image('images/temps/home/tmp_home_h_product_img_product.jpg','',array('class'=>'sidebar-img'))}}
-    </div>
-    <div class="one-item">
-        {{Html::image('images/temps/home/tmp_home_h_product_img_product.jpg','',array('class'=>'sidebar-img'))}}
-    </div>
-    <div class="one-item">
-        {{Html::image('images/temps/home/tmp_home_h_product_img_product.jpg','',array('class'=>'sidebar-img'))}}
-    </div>
+    {{--<div class="one-item">--}}
+        {{--{{Html::image('images/temps/home/tmp_home_h_product_img_product.jpg','',array('class'=>'sidebar-img'))}}--}}
+    {{--</div>--}}
+    {{--<div class="one-item">--}}
+        {{--{{Html::image('images/temps/home/tmp_home_h_product_img_product.jpg','',array('class'=>'sidebar-img'))}}--}}
+    {{--</div>--}}
+    {{--<div class="one-item">--}}
+        {{--{{Html::image('images/temps/home/tmp_home_h_product_img_product.jpg','',array('class'=>'sidebar-img'))}}--}}
+    {{--</div>--}}
+    {{--<div class="one-item">--}}
+        {{--{{Html::image('images/temps/home/tmp_home_h_product_img_product.jpg','',array('class'=>'sidebar-img'))}}--}}
+    {{--</div>--}}
 
 
 </div>
