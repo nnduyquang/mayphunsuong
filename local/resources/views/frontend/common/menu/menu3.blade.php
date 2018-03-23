@@ -1,4 +1,8 @@
+<div id="menu_top_mobile" class="col-md-12 text-center d-lg-none d-md-none">
+    {{ Html::image('images/logo/logo duyhoai_new.png','',array('class'=>'menu_logo'))}}
+</div>
 <div id="menu" class="container-fluid p-0 d-none d-md-block">
+
     <div id="menu_top">
         <div class="container">
             <div class="col-md-12">
@@ -10,7 +14,7 @@
                         <ul class="menu-search">
                             <li><a href="#" id="clickSearch"><i class="fa fa-search" aria-hidden="true"></i></a></li>
                             <li style="width: 100%">
-                                {!! Form::open(array('method'=>'POST','id'=>'formSearch')) !!}
+                                {!! Form::open(array('route' => 'search','method'=>'POST','id'=>'formSearch')) !!}
                                 {!! Form::text('key-search', '', array('placeholder' => 'Tìm Kiếm','class' => 'form-control','id'=>'searchInput')) !!}
                                 {!! Form::close() !!}
                             </li>

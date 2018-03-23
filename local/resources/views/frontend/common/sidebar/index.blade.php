@@ -19,9 +19,9 @@
         <h3>HỖ TRỢ TRỰC TUYẾN</h3>
         <ul class="ul-ht-info">
             <li>
-                <h4 class="ht-name">Mr.A</h4>
-                <div>Zalo: 0909 090 090</div>
-                <div>Email: a@gmail.com</div>
+                <h4 class="ht-name">Lê Duy Huy</h4>
+                <div>Zalo: 0971.703.972</div>
+                {{--<div>Email: phunsuongduyhuy@gmail.com</div>--}}
             </li>
         </ul>
     </div>

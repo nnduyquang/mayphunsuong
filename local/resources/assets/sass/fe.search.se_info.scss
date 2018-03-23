@@ -19,7 +19,7 @@
       .discount {
         position: absolute;
         color: white;
-        background-color: $main-color;
+        background-color: $sub-color;
         padding: 0 10px;
         height: 22px;
         line-height: 22px;
@@ -48,7 +48,7 @@
 
       }
       span.price-sale {
-        color: $main-color;
+        color: $sub-color;
         line-height: 1.5;
         font-weight: bold;
       }
@@ -59,7 +59,7 @@
         //display: block;
       }
       span.price-contact {
-        color: red;
+        color: $sub-color;
         font-size: 21px;
         margin-top: 10px;
         display: block;

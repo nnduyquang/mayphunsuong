@@ -27,6 +27,8 @@ Route::get('/tim-kiem/keyword', function () {
 
 Route::get('/{path}', 'FrontendController@getMainPage');
 
+Route::post('/tim-kiem','FrontendController@getSearch')->name('search');
+
 
 
 Route::get('/admin/sml_login', 'AuthController@checklogin');

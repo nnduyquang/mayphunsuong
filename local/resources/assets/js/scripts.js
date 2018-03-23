@@ -10,6 +10,7 @@ $(document).ready(function () {
             pauseTime: 3000,
             pauseOnHover: true,
             controlNav: false,
+            height:400
         });
     }
     if (plugins.slider.length) {

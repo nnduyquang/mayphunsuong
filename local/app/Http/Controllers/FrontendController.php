@@ -45,5 +45,10 @@ class FrontendController extends Controller
         $data=$this->frontendRepository->getMainPage($path);
         return view('frontend.'.$data[0]->template,compact('data'));
     }
+
+    public function getSearch(Request $request){
+        $data=$this->frontendRepository->getSearch($request->input('key-search'));
+        return view('frontend.search.index',compact('data'));
+    }
 }
 

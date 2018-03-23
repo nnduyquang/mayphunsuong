@@ -17,7 +17,7 @@
             @else
                 <span class="price-contact">Liên Hệ</span>
             @endif
-            <input class="btn-confirm btn" type="button" value="0965322239">
+            <input class="btn-confirm btn" type="button" value="0971.703.972">
         </div>
         <div id="p-content" class="col-md-12">
             {!! $data['product']->content !!}

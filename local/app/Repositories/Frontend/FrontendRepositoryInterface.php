@@ -19,4 +19,6 @@ interface FrontendRepositoryInterface
     public function getFooterInfo();
 
     public function getMainPage($path);
+
+    public function getSearch($keySearch);
 }

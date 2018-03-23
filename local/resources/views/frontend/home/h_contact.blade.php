@@ -2,7 +2,7 @@
     <div class="row">
         <div class="h_contact-left col-md-4 card">
             <div class="card-body">
-                <h3 class="title card-title">Gọi Hotline: 0907468264e</h3>
+                <h3 class="title card-title">Gọi Hotline: 0971.703.972</h3>
 
             </div>
             <div class="card-body">
@@ -15,7 +15,7 @@
 
             </div>
             <div class="card-body">
-                <p class="card-text">Giao Hàng Miễn Phí Giao Hàng Miễn Phí Giao Hàng Miễn Phí Giao Hàng Miễn Phí Giao Hàng Miễn Phí</p>
+                <p class="card-text">Cho Đơn Hàng Trên 3 Triệu Đồng</p>
             </div>
         </div>
         <div class="h_contact-right col-md-4 card">

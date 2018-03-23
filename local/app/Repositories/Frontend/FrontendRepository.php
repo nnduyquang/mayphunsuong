@@ -104,5 +104,15 @@ class FrontendRepository implements FrontendRepositoryInterface
         return $page;
     }
 
+    public function getSearch($keySearch)
+    {
+        $data = [];
+        $keySearch = preg_replace('/\s+/', ' ', $keySearch);
+        $products = Product::where('name', 'like', '%' . $keySearch . '%')->orderBy('id', 'DESC')->get();
+        $data['products'] = $products;
+        $data['key-search']=$keySearch;
+        return $data;
+    }
+
 
 }
