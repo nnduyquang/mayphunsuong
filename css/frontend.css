@@ -408,6 +408,7 @@ img {
   font-style: normal;
   font-stretch: normal;
   line-height: 1.38;
+  text-transform: uppercase;
 }
 
 #h_product .one-item-category .list-product .one-product h4.title-product a {
@@ -550,6 +551,7 @@ img {
   font-style: normal;
   font-stretch: normal;
   line-height: 1.38;
+  text-transform: uppercase;
 }
 
 #ca_info .one-item-category .list-product .one-product h4.title-product a {
@@ -903,6 +905,7 @@ img {
   font-style: normal;
   font-stretch: normal;
   line-height: 1.38;
+  text-transform: uppercase;
 }
 
 #se_info .list-product .one-product h4.title-product a {

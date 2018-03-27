@@ -2,7 +2,7 @@
     <h1 style="font-weight:  bold;color:  #0c4294;font-size: 18px;">CÔNG TY PHUN SƯƠNG DUY HUY</h1>
     <ul>
         <li><span class="lh-info-txt">Địa Chỉ:</span>29/14 Đường số 5, Quốc lộ 13, P Hiệp Bình Chánh, Q Thú Đức .Tp. Hồ Chí Minh</li>
-        <li><span class="lh-info-txt">Điện Thoại:</span> 0971.703.972</li>
+        <li><span class="lh-info-txt">Điện Thoại:</span> 0971.703.972 - 0933.589.089</li>
         <li><span class="lh-info-txt">Email:</span> phunsuongduyhuy@gmail.com</li>
     </ul>
     <div class="col-md-12 lh-map p-0">

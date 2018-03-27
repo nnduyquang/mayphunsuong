@@ -20,7 +20,8 @@
         <ul class="ul-ht-info">
             <li>
                 <h4 class="ht-name">Lê Duy Huy</h4>
-                <div>Zalo: 0971.703.972</div>
+                <div>Zalo 1: 0971.703.972</div>
+                <div>Zalo 2: 0933.589.089</div>
                 {{--<div>Email: phunsuongduyhuy@gmail.com</div>--}}
             </li>
         </ul>
